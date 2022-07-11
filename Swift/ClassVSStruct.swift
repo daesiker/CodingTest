@@ -16,29 +16,9 @@ class Human {
 
 }
 
-var human1:Human? = Human(28, "Daesik")
+var human1:Human? = Human(28, "Daesik") // ARC : 1
 print(human1)
-var human2 = human1
+var human2 = human1 // ARC : 2
 
-human1 = nil
-human2 = nil
-
-// struct Human {
-//     var age:Int
-//     var name:String
-
-//     init(_ age: Int, _ name: String) {
-//         self.age = age
-//         self.name = name
-//         print("\(self.name) init")
-//     }
-
-// }
-
-// var human1:Human? = Human(28, "Daesik")
-// var human2 = human1
-
-// human2?.age = 29
-
-// print(human1!.age)
-// print(human2!.age)
+human1 = nil //ARC : 1
+human2 = nil //ARC : 0
