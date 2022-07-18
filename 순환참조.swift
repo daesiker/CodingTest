@@ -34,5 +34,8 @@ var girl:Woman? = Woman("dlwlrma")
 boy?.woman = girl
 girl?.man = boy
 
+boy?.woman = nil
+girl?.man = nil
+
 boy = nil
 girl = nil
