@@ -11,7 +11,7 @@ for _ in 0..<n {
 array.sort()
 var answer:[Int] = []
 
-for i in 2...array[0] {
+for i in 2...array[array.count - 1] {
     
     let x = array[0] % i
     var breakPoint = false
