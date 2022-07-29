@@ -35,4 +35,4 @@ boy?.woman = girl
 girl?.man = boy
 
 girl = nil
-boy = nil
+print(boy?.woman)
