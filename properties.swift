@@ -64,6 +64,9 @@ class People {
 }
 
 class Account {
+
+    static var account:Int = 1000
+
     var money:Int = 0 {
         willSet {
             print("잔액 변경 예정 \(money)원 -> \(newValue)")
@@ -74,8 +77,5 @@ class Account {
     }
 }
 
-let account = Account()
-
-account.money = 10000
-//잔액 변경 예정 0원 -> 10000
-//잔액 변경 완료 0원 -> 10000
+Account.account = 2000
+print(Account.account)
