@@ -26,8 +26,15 @@ for i in 0..<point.count {
     }
 }
 
-var subW = abs(point[(w_idx - 1) % 6][1] - point[(w_idx + 1) % 6][1])
-var subH = abs(point[(h_idx - 1) % 6][1] - point[(h_idx + 1) % 6][1])
+let sub_widx1 = w_idx == 0 ? 5 : w_idx - 1
+let sub_widx2 = w_idx == 5 ? 0 : w_idx + 1
+
+let sub_hidx1 = h_idx == 0 ? 5 : h_idx - 1
+let sub_hidx2 = h_idx == 5 ? 0 : h_idx + 1
+
+
+var subW = abs(point[sub_widx1][1] - point[sub_widx2][1])
+var subH = abs(point[sub_hidx1][1] - point[sub_hidx2][1])
 
 let answer = ((w*h) - (subW*subH)) * charm
 print(answer)
