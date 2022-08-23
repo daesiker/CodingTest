@@ -1,15 +1,16 @@
-zero = [1, 0, 1]
-one = [0, 1, 1]
+import sys
+n = int(sys.stdin.readline())
+meeting = []
+for _ in range(n) :
+    meeting.append(list(map(int, sys.stdin.readline().split())))
+meeting = sorted(meeting, key = lambda x : [x[1], x[0]])
 
-def fibonacci(num):
-    length = len(zero)
+max_meeting = 0
+start = 0
+for meet in meeting :
+    if meet[0] >= start :
+        start = meet[1] 
+        max_meeting += 1
+print(max_meeting)
 
-    if num >= length:
-        for i in range(length, num + 1):
-            zero.append(zero[i-1] + zero[i-2])
-            one.append(one[i-1] + one[i-2])
-    print('{} {}'.format(zero[num], one[num]))
-
-T = int(input())
-for _ in range(T):
-    fibonacci(int(input()))
+print(meeting)
