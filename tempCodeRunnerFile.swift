@@ -1,38 +1,40 @@
 import Foundation
 
-let string = readLine()!.map{ Int($0.asciiValue! - 97) }
-let N = Int(readLine()!)!
 
-var preSum = Array.init(repeating: Array.init(repeating: 0, count: 26), count: string.count)
 
-preSum[0][string[0]] = 1
 
-for i in 1..<string.count {
-    preSum[i][string[i]] = 1
-
-    for j in 0..<26 {
-        preSum[i][j] += preSum[i-1][j]
+//Task1
+func task1() {
+    for _ in 0..<5 {
+        print("첫번째 작업")
     }
 }
 
-for _ in 0..<N {
-    let input = readLine()!.split(separator: " ").map { String($0) }
-    
-    let num = Int(input[0].first!.asciiValue! - 97)
-
-
-    let x = Int(input[1])!
-    let y = Int(input[2])!
-
-    if x > 0 {
-        let value = preSum[y][num] - preSum[x-1][num]
-        print(value)
-    } else {
-        print(preSum[y][num])
+//Task2
+func task2() {
+    for _ in 0..<5 {
+        print("두번째 작업")
     }
+}
 
+//Task3
+func task3() {
+    for _ in 0..<5 {
+        print("세번째 작업")
+    }
     
 }
 
+//Task4
+func task4() {
+    for _ in 0..<5 {
+        print("네번째 작업")
+    }
+}
 
+let concurrentQueue = DispatchQueue.init(label: "customQueue", attributes: .concurrent)
+concurrentQueue.sync  { task1() }
+concurrentQueue.async { task2() }
+concurrentQueue.sync  { task3() }
+concurrentQueue.sync  { task4() }
 
