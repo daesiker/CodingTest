@@ -8,13 +8,14 @@ for _ in 0..<n {
     let tmp = readLine()!.split(separator: " ").map { Int(String($0))! }
     array.append(tmp)
 }
+print(array)
 
-func check(_ arr: [[Int]]) -> Bool {
+func check(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int, _ arr: [[Int]]) -> Bool {
 
-    let value = arr[0][0]
+    let value = arr[x1][y1]
 
-    for i in 0..<arr.count {
-        for j in 0..<arr[i].count {
+    for i in x1..<x2 {
+        for j in y1..<y2 {
             if arr[i][j] != value {
                 return false
             }
@@ -25,16 +26,22 @@ func check(_ arr: [[Int]]) -> Bool {
 }
 
 
-func solution(_ arr: [[Int]]) {
+func solution(_ x1: Int, _ y1: Int, _ x2: Int, _ y2: Int, _ arr: [[Int]]) {
 
-    if check(array) {
+    if check(x1, y1, x2, y2, arr) {
         answer += 1
         return 
     } else {
-        let n = arr.count / 2
-        let tmp1 = arr[0..<n][0..<n]
-        print(tmp1)
+        let newX = x2 / 2
+        let newY = y2 / 2
+        solution(x1, y1, newX, newY, arr)
+        solution(newX, newY, x2, y2, arr)
+        solution(newX, y1, x2, newY, arr)
+        solution(x1, newY, newX, y2, arr)
+
     }
 
 }
-solution(array)
+
+solution(0, 0, n, n, array)
+print(answer)
