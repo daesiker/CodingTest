@@ -16,7 +16,6 @@ for _ in 0..<n {
 func check(_ r: Int, _ c: Int, _ sz: Int) -> Void {
 
     let value = arr[r][c]
-
     for i in r..<r+sz {
         for j in c..<c+sz {
             if value != arr[i][j] {
@@ -33,7 +32,6 @@ func check(_ r: Int, _ c: Int, _ sz: Int) -> Void {
             }
         }
     }
-
 
     if value == -1 {
         minus += 1
