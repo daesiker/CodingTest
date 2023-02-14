@@ -1,29 +1,16 @@
 import Foundation
 
 func solution(_ number:Int, _ limit:Int, _ power:Int) -> Int {
-    var answer = 0
-    for num in 1...number {
-        
-        let tmp = division(num)
-        
-        if tmp > limit {
-            answer += power
-        } else {
-            answer += tmp
-        }
-        
-    }
-    
-    return answer
-}
+    var attack = [Int](repeating: 0, count: number+1)
 
-func division(_ num: Int) -> Int {
-    var answer = 0
-    for i in 1...num {
-        if num % i == 0 {
-            answer += 1
+    for i in 1...number {
+        var c = i
+
+        while c <= number {
+            attack[c] += 1
+            c += i
         }
     }
-    
-    return answer
+    attack = attack.map { $0 > limit ? power : $0 }
+    return attack.reduce(0, +)
 }
