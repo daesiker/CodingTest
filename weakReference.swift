@@ -19,20 +19,17 @@ class Woman {
 
     init(_ name: String) {
         self.name = name
-        print("\(name) init")
+        print("init")
+    }
+
+    func pprint() {
+        print("해해해")
     }
 
     deinit {
-        print("\(name) deinit")
+        print("deinit")
     }
 
 }
 
-var boy:Man? = Man("daesiker")
-var girl:Woman? = Woman("dlwlrma")
-
-boy?.woman = girl
-girl?.man = boy
-
-girl = nil
-
+Woman("여자").pprint()
