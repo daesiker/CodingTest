@@ -31,7 +31,6 @@ for _ in 0..<T {
         } else {
             print(0)
         }
-
     }
 
 }
