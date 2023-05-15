@@ -38,3 +38,4 @@ for num in arr {
 }
 
 print(dp.count)
+print(dp.map { String($0)}.joined(separator: " "))
