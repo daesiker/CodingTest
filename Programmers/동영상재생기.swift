@@ -27,13 +27,29 @@ func solution(_ video_len:String, _ pos:String, _ op_start:String, _ op_end:Stri
 
         if command == "next" {
             pos += 10
+
+            if pos > video_len {
+                pos = video_len
+            }
+            if op_start...op_end ~= pos {
+                pos = op_end
+            }
+
             
+        } else {
+            pos -= 10
 
+            if pos < 0 {
+                pos = 0
+            }
 
+            if op_start...op_end ~= pos {
+                pos = op_end
+            }
         }
         
     }
 
 
-    return ""
+    return convertString(pos)
 }
