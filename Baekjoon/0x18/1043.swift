@@ -28,11 +28,12 @@ func union(_ a: Int, _ b: Int) {
     size[pa] += size[pb]
 }
 
+
 func solution() {
     let input = readLine()!.split(separator: " ").map { Int($0)! }
     n = input[0]
     m = input[1]
-
+    var result = 0
     initUnionFind(n)
 
     let whoKnowsTruth = Array(readLine()!.split(separator: " ").map { Int($0)! }.dropFirst())
@@ -41,25 +42,30 @@ func solution() {
         let participants = Array(readLine()!.split(separator: " ").map { Int($0)! }.dropFirst())
         parties.append(participants)
     }
-    print(size)
+
     for party in parties {
         for i in 0..<party.count-1 {
             union(party[i], party[i+1])
         }
     }
 
-    print(size)
-
     if !whoKnowsTruth.isEmpty {
         for i in 0..<whoKnowsTruth.count-1 {
             union(whoKnowsTruth[i], whoKnowsTruth[i+1])
         }
-        
-        print(size)
+
+        for party in parties {
+            if find(party.first!) != find(whoKnowsTruth.first!) {
+                result += 1
+            }
+        }
+        print(result)
     } else {
         print(m)
     }
 
 }
+
+
 
 solution()
